@@ -1,0 +1,20 @@
+{
+    "name": "tyler36/social-auth",
+    "description": "Social Authentication",
+    "require": {
+        "laravel/socialite": "^3.0",
+        "watson/validating": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tyler36\\SocialAuth\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tyler36\\SocialAuth\\SocialAuthServiceProvider"
+            ]
+        }
+    }
+}
