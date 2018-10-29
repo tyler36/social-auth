@@ -3,8 +3,8 @@
 namespace Tyler36\SocialAuth\Helpers;
 
 use App\User;
-use Tyler36\SocialAuth\SocialAuthServiceProvider;
 use Laravel\Socialite\Facades\Socialite;
+use Tyler36\SocialAuth\SocialAuthServiceProvider;
 
 class Authenticator
 {
@@ -22,7 +22,7 @@ class Authenticator
     /**
      * Make request to Provider
      *
-     * @return Redirect
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function logInToProvider()
     {
@@ -34,7 +34,7 @@ class Authenticator
     /**
      * Redirect to provider.
      *
-     * @return Redirect
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function redirectToProvider()
     {
@@ -45,7 +45,7 @@ class Authenticator
     /**
      * Handle callback response from Provider
      *
-     * @return void
+     * @return User
      */
     public function respondToCallback()
     {
@@ -63,7 +63,7 @@ class Authenticator
     /**
      * Throw error if Provider is invalid
      *
-     * @return void
+     * @return Authenticator
      */
     public function validateProvider()
     {
@@ -79,7 +79,7 @@ class Authenticator
     /**
      * Retrieve User from database
      *
-     * @return void
+     * @return User
      */
     public function getUser()
     {
@@ -101,7 +101,7 @@ class Authenticator
     /**
      * Get Socialite object
      *
-     * @return void
+     * @return \Laravel\Socialite\One\User|\Laravel\Socialite\Two\User
      */
     public function getSocialUserObject()
     {
@@ -114,7 +114,7 @@ class Authenticator
      * @param object $user       User model
      * @param object $socialUser Socialite user object
      *
-     * @return void
+     * @return bool
      */
     public function updateUser($user, $socialUser)
     {
@@ -131,7 +131,7 @@ class Authenticator
      *
      * @param mixed $user
      *
-     * @return void
+     * @return bool
      */
     public function userHasDuplicateName($user)
     {
@@ -141,9 +141,9 @@ class Authenticator
     /**
      * Validate User object
      *
-     * @param [type] $user
+     * @param User $user
      *
-     * @return void
+     * @return User
      */
     public function validateUser($user)
     {
