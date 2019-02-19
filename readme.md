@@ -58,3 +58,10 @@ EG.:
 - Create entry / exit endpoints
 Finally, you'll need to a link somewhere to the provider. By default, this would be 'login/{provider}', or you can use the named route helper: ```route('login.sns', {provider})```.
 This package is set to return authenticated user to `/home` so add something there too.
+
+
+## Testing
+There are some (basic) tests.
+```
+phpunit .\vendor\tyler36\social-auth\tests
+```
