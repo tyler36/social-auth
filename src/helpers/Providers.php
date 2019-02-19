@@ -31,9 +31,9 @@ class Providers
         return array_filter(
             $providers = array_keys(self::getProviders(), true, true),
             function ($provider) {
-                if ('google' === $provider && ends_with(config('app.url'), '.local')) {
-                    return false;
-                }
+                // if ('google' === $provider && ends_with(config('app.url'), '.local')) {
+                //     return false;
+                // }
 
                 return self::isConfigured($provider);
             }
