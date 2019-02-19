@@ -5,6 +5,7 @@ namespace Tyler36\SocialAuth\Helpers;
 use App\User;
 use Laravel\Socialite\Facades\Socialite;
 use Tyler36\SocialAuth\SocialAuthServiceProvider;
+use Illuminate\Support\Facades\Validator;
 
 class Authenticator
 {
@@ -120,48 +121,9 @@ class Authenticator
     public function updateUser($user, $socialUser)
     {
         $user->fill([
-            'name'  => $socialUser->nickname,
+            'name'  => $socialUser->nickname ?? $socialUser->name,
             'email' => ('' !== $socialUser->email) ? $socialUser->email : null,
         ])->save();
-
-        return $this->validateUser($user);
-    }
-
-    /**
-     * Check if User fails 'unique' name validation
-     *
-     * @param mixed $user
-     *
-     * @return bool
-     */
-    public function userHasDuplicateName($user)
-    {
-        return in_array(trans('validation.unique', ['attribute' => 'name']), $user->getErrors()->all(), true);
-    }
-
-    /**
-     * Validate User object
-     *
-     * @param User $user
-     *
-     * @return User
-     */
-    public function validateUser($user)
-    {
-        if ($user->isValid()) {
-            $user->save();
-
-            return $user;
-        }
-
-        $messageBag = clone $user->getErrors();
-
-        if ($this->userHasDuplicateName($user)) {
-            $user->name = $user->auth_provider.'-'.str_random(5);
-        }
-
-        $user->forceSave();
-        $user->setErrors($messageBag);
 
         return $user;
     }

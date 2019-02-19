@@ -2,8 +2,7 @@
     "name": "tyler36/social-auth",
     "description": "Social Authentication",
     "require": {
-        "laravel/socialite": "^3.0",
-        "watson/validating": "^3.1"
+        "laravel/socialite": "^3.0"
     },
     "autoload": {
         "psr-4": {
