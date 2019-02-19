@@ -17,16 +17,16 @@ Route:  ```login.sns.callback```
 composer require tyler36/social-auth
 ```
 
-- Update User model to include 2 new columns. You'll also need to update any factory models.
-```
-    $table->string('auth_provider')->nullable();
-    $table->string('auth_provider_id')->nullable();
-```
-
 - Publish assets
 ```
 php artisan vendor:publish --provider=Tyler36\SocialAuth\SocialAuthServiceProvider
 ```
+
+- Run migration
+```
+php artisan migrate
+```
+
 
 - Add social-auth routes to ```./routes/web.php```
 ```

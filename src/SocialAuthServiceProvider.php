@@ -65,12 +65,10 @@ class SocialAuthServiceProvider extends ServiceProvider
      */
     public function bootMigrations()
     {
-        $this->loadMigrationsFrom(self::$vendorPath.'/migrations/add_provider_login_details.php');
-
-        // $this->publishes([
-        //     self::$vendorPath .'/migrations/add_provider_login_details.php' =>
-        //     database_path('migrations/'. date('Y_m_d_His') .'_add_provider_login_details.php')
-        // ]);
+        $this->publishes([
+            self::$vendorPath .'/migrations/update_user_model.php' =>
+            database_path('migrations/'. date('Y_m_d_His') .'_update_user_model.php')
+        ]);
 
         return $this;
     }
@@ -95,7 +93,7 @@ class SocialAuthServiceProvider extends ServiceProvider
     public function copyController()
     {
         $this->publishes([
-            self::$vendorPath.'/controller/SocialAuthController.php' => app_path('http/Controllers/Auth/SocialAuthController.php'),
+            self::$vendorPath.'/controller' => app_path('http/Controllers/Auth'),
         ]);
 
         return $this;

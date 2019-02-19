@@ -4,12 +4,11 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateUserModelForSocialAuth extends Migration
+class UpdateUserModel extends Migration
 {
     protected static $columns = ['provider_name', 'provider_type'];
 
     protected $table;
-
 
     public function __construct()
     {
@@ -23,8 +22,7 @@ class UpdateUserModelForSocialAuth extends Migration
      */
     public function up()
     {
-        var_dump($this->table);
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table($this->table, function (Blueprint $table) {
             foreach(self::$columns as $column ) {
                 $table->string($column)->nullable();
             }
@@ -38,8 +36,8 @@ class UpdateUserModelForSocialAuth extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumns([self::$columns]);
+        Schema::table($this->table, function (Blueprint $table) {
+            $table->dropIfExists([self::$columns]);
         });
     }
 }

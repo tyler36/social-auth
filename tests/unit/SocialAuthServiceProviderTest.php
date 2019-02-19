@@ -56,8 +56,8 @@ class SocialAuthServiceProviderTest extends TestCase
     /**
      * @test
      */
-    public function it_contains_view_migration_files()
+    public function it_contains_migration_files()
     {
-        $this->assertFileExists("{$this->vendorPath}/migrations/add_provider_login_details.php");
+        $this->assertFileExists("{$this->vendorPath}/migrations/update_user_model.php");
     }
 }
