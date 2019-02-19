@@ -6,13 +6,15 @@ use Illuminate\Database\Migrations\Migration;
 
 class UpdateUserModel extends Migration
 {
-    protected static $columns = ['provider_name', 'provider_type'];
+    protected static $columns;
 
     protected $table;
 
     public function __construct()
     {
         $this->table = config('socialauth.user_table', 'users');
+
+        self::$columns = config('socialauth.user_columns', ['auth_provider', 'auth_provider_id']);
     }
 
     /**
