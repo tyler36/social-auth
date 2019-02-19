@@ -39,6 +39,7 @@ class Authenticator
     public function redirectToProvider()
     {
         return Socialite::driver($this->provider)
+            ->with(['locale' => app()->getLocale()])
             ->redirect();
     }
 

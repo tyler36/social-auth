@@ -47,7 +47,7 @@ class GuestsCanLogInToSocialNetworksTest extends TestCase
         $provider = ProvidersTest::setupValidProvider();
 
         // SETUP:       Mock Socialite response
-        Socialite::shouldReceive('driver->redirect')
+        Socialite::shouldReceive('driver->with->redirect')
             ->andReturn(redirect('/'));
 
         // VISIT:       Page and see assert redirect
