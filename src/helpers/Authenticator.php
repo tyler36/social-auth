@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Validator;
 class Authenticator
 {
     /**
+     * Name of authenticating social servive
+     *
+     * @var string
+     */
+    public $provider;
+
+    /**
      * Create the event listener.
      *
      * @return void
@@ -45,7 +52,7 @@ class Authenticator
     }
 
     /**
-     * Handle callback response from Provider
+     * Handle callback response from provider
      *
      * @return User
      */

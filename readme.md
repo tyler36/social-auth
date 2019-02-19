@@ -27,11 +27,11 @@ php artisan vendor:publish --provider=Tyler36\SocialAuth\SocialAuthServiceProvid
 php artisan migrate
 ```
 
-
 - Add social-auth routes to ```./routes/web.php```
 ```
 require __DIR__.'/socialauth.php';
 ```
+
 
 - Adding providers.
 Create API key information for each provider you would like to you. Each provider requires a ```client_id```, ```client_secret```, & ```client_callback_url```.
@@ -55,9 +55,8 @@ EG.:
  'github' => true
 ```
 
-- Create entry / exit endpoints
-Finally, you'll need to a link somewhere to the provider. By default, this would be 'login/{provider}', or you can use the named route helper: ```route('login.sns', {provider})```.
-This package is set to return authenticated user to `/home` so add something there too.
+- Update factories.
+If you use model factories, you should update them
 
 
 ## Testing

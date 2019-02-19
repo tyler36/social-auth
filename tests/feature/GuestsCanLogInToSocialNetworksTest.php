@@ -70,6 +70,7 @@ class GuestsCanLogInToSocialNetworksTest extends TestCase
         // VISIT:       Endpoint
         Socialite::shouldReceive('driver->user')
             ->andReturn($socialUser);
+
         $this->withoutExceptionHandling()
             ->get(route('login.sns.callback', $user->auth_provider));
 
