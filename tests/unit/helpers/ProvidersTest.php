@@ -57,6 +57,17 @@ class ProvidersTest extends TestCase
     public function it_can_get_an_array_of_enabled_providers_from_config()
     {
         // SETUP:       Config
+        config()->set('services.github', [
+            'client_id'     => 'test_client_id',
+            'client_secret' => 'test_client_secret',
+            'redirect'      => 'test_redirect'
+        ]);
+        config()->set('services.twitter', [
+            'client_id'     => 'test_client_id',
+            'client_secret' => 'test_client_secret',
+            'redirect'      => 'test_redirect'
+        ]);
+
         config()->set('socialauth.providers', [
             'github'  => true,
             'twitter' => false,
