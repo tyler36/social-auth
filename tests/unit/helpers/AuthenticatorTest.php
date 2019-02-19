@@ -10,6 +10,7 @@ use Tests\TestCase;
  * Class AuthenticatorTest
  *
  * @test
+ * @group unit
  *
  * @SuppressWarnings(PHPMD.CamelCaseMethodName)
  */

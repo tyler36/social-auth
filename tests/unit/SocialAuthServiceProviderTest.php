@@ -8,6 +8,7 @@ use Tests\TestCase;
  * Class SocialAuthServiceProvider
  *
  * @test
+ * @group unit
  *
  * @SuppressWarnings(PHPMD.CamelCaseMethodName)
  */

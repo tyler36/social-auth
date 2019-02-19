@@ -11,6 +11,7 @@ use Tests\TestCase;
  *
  * @test
  * @group route
+ * @group unit
  *
  * @SuppressWarnings(PHPMD.CamelCaseMethodName)
  */

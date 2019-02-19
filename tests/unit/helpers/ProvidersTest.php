@@ -9,6 +9,7 @@ use Tests\TestCase;
  * Class ProvidersTest
  *
  * @test
+ * @group unit
  *
  * @SuppressWarnings(PHPMD.CamelCaseMethodName)
  */
