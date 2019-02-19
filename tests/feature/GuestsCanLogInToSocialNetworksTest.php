@@ -31,12 +31,11 @@ class GuestsCanLogInToSocialNetworksTest extends TestCase
         // VISIT:       Attempt login of disabled provider
         $this->withExceptionHandling()
             ->get(route('login.sns', [$provider]))
-            ->assertStatus(401)
-            ->assertSee(trans('socialite.unavailable', ['provider' => $provider]));
+            ->assertStatus(401);
 
-        $this->withExceptionHandling()->get(route('login.sns.callback', [$provider]))
-            ->assertStatus(401)
-            ->assertSee(trans('socialite.unavailable', ['provider' => $provider]));
+        $this->withExceptionHandling()
+            ->get(route('login.sns.callback', [$provider]))
+            ->assertStatus(401);
     }
 
     /**
