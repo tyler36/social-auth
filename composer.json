@@ -1,6 +1,7 @@
 {
     "name": "tyler36/social-auth",
     "description": "Social Authentication",
+    "version": "0.3",
     "require": {
         "laravel/socialite": "^5.0"
     },
